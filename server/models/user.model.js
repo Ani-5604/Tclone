@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       minLength: 10,
       maxLength: 10,
-      required: true,
+     
       unique: true,
     },
     resetPasswordToken: String,

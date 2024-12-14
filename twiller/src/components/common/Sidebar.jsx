@@ -296,7 +296,7 @@ const toggleEmojiPicker = () => {
                 <ul className='flex flex-col gap-3 mt-4'>
             
 
-              <SidebarLink to="/" icon={<MdHomeFilled className="w-8 h-8" />} text={t("Home")} />
+              <SidebarLink to="/home" icon={<MdHomeFilled className="w-8 h-8" />} text={t("Home")} />
 <SidebarLink to="/notifications" icon={<IoNotifications className="w-6 h-6" />} text={t("Notifications")} />
 <SidebarLink to="/explore" icon={<IoSearch className="w-6 h-6" />} text={t("Explore")} />
 <SidebarLink to="/messages" icon={<IoMail className="w-6 h-6" />} text={t("Messages")} />
@@ -305,15 +305,10 @@ const toggleEmojiPicker = () => {
 <SidebarLink to={`/profile/${authUser?.username}`} icon={<PermIdentityIcon className="w-6 h-6" />} text={t("Profile")} />
 <SidebarLink to="/more" icon={<MoreIcon className="w-6 h-6" />} text={t("More")} />
 
-                    <Button
-        variant="outlined"
-        className="sidebar__tweet"
-        fullWidth
-        onClick={() => setShowTweetForm(true)} // Show form when button clicked
-      >
+   
+      <Button variant="outlined" className="sidebar__tweet" fullWidth  onClick={() => setShowTweetForm(true)}>
         Tweet
       </Button>
-
       {/* Tweet Form Modal */}
       {showTweetForm && (
         <div className="modal modal-open">
@@ -455,7 +450,7 @@ const toggleEmojiPicker = () => {
                         <Link to={`/profile/${authUser.username}`} className='flex gap-2 items-center'>
                             <Avatar src={authUser?.profileImg || "/avatar-placeholder.png"} alt='Profile' />
                             <div className='hidden md:block'>
-                                <p className='text-white font-bold text-sm w-20 truncate'>{authUser?.fullName}</p>
+                                <p className='text-slate font-bold text-sm w-20 truncate'>{authUser?.fullName}</p>
                                 <p className='text-slate-600 text-sm'>@{authUser?.username}</p>
                             </div>
                         </Link>

@@ -93,17 +93,19 @@ function App() {
         currentLanguage={currentLanguage}
         onLanguageChange={handleLanguageChange}
       /></PrivateRoute>}/>
-              <Route path="/notifications" element={<PrivateRoute><NotificationPage /></PrivateRoute>} />
-              <Route path="/profile/:username" element={<PrivateRoute><ProfilePage /></PrivateRoute>} />
+            
+              <Route path='/' element={authUser ? <HomePage /> : <Navigate to='/login' />} />
+				<Route path='/login' element={!authUser ? <LoginPage /> : <Navigate to='/' />} />
+				<Route path='/signup' element={!authUser ? <SignUpPage /> : <Navigate to='/' />} />
+				<Route path='/notifications' element={authUser ? <NotificationPage /> : <Navigate to='/login' />} />
+				<Route path='/profile/:username' element={authUser ? <ProfilePage /> : <Navigate to='/login' />} />
               <Route path="/bookmarks" element={<PrivateRoute><Bookmark /></PrivateRoute>} />
               <Route path="/lists" element={<PrivateRoute><List /></PrivateRoute>} />
               <Route path="/messages" element={<PrivateRoute><Message /></PrivateRoute>} />
               <Route path="/explore" element={<PrivateRoute><Explore /></PrivateRoute>} />
               <Route path="/more" element={<PrivateRoute><More /></PrivateRoute>} />
               <Route path="/reset-password/:token" element={<ResetPasswordPage/>} />
-              {/* Public Routes */}
-              <Route path="/login" element={!authUser ? <LoginPage /> : <Navigate to="/home" />} />
-              <Route path="/signup" element={!authUser ? <SignUpPage /> : <Navigate to="/" />} />
+
             </Routes>
           </div>
 

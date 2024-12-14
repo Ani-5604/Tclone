@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
-import { useTranslation } from "../../../node_modules/react-i18next";
+import { useTranslation } from "react-i18next";
 import LoadingSpinner from "./LoadingSpinner";
 import { formatPostDate } from "../../utils/date";
 
@@ -109,7 +109,7 @@ const Post = ({ post }) => {
     const { mutate: deleteComment } = useMutation({
         mutationFn: async (commentId) => {
          
-            const url = `https://twitterclone-twiller.onrender.com/api/posts/${post._id}/comments/${commentId}`;
+            const url = `/api/posts/${post._id}/comments/${commentId}`;
             try {
                 const res = await fetch(url, {
                     method: "DELETE",
